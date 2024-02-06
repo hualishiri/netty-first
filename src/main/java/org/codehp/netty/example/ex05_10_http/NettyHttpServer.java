@@ -1,4 +1,4 @@
-package org.codehp.netty.example.ex510;
+package org.codehp.netty.example.ex05_10_http;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

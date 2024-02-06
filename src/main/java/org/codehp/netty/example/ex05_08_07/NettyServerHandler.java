@@ -1,4 +1,4 @@
-package org.codehp.netty.example.ex587;
+package org.codehp.netty.example.ex05_08_07;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class NettyServerHandler extends ChannelInboundHandlerAdapter {
     @Override
-    public void channelRead(final ChannelHandlerContext ctx, Object msg) throws Exception {
+    public void channelRead(final ChannelHandlerContext ctx, final Object msg) throws Exception {
         // super.channelRead(ctx, msg);
         System.out.println("【服务端】服务器读取线程 " + Thread.currentThread().getName() + " channel = " + ctx.channel());
         System.out.println("【服务端】server ctx = " + ctx);
@@ -58,6 +58,8 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
                     Thread.sleep(5000);
                     ctx.writeAndFlush(Unpooled.copiedBuffer("【服务器】定时任务返回结果" + new Date(), CharsetUtil.UTF_8));
                     System.out.println("【服务器】定时任务 channel code = " + channel.hashCode());
+                    ctx.fireChannelRead(msg);
+                    ctx.fireChannelReadComplete();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

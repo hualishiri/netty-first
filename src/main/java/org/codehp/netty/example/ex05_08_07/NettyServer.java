@@ -1,6 +1,5 @@
-package org.codehp.netty.example.ex587;
+package org.codehp.netty.example.ex05_08_07;
 
-import com.sun.security.ntlm.Server;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -24,6 +23,7 @@ public class NettyServer {
                         protected void initChannel(SocketChannel ch) throws Exception {
                             System.out.println("【服务端】客户SocketChannel hashcode=" + ch.hashCode());
                             ch.pipeline().addLast(new NettyServerHandler());
+                            ch.pipeline().addLast(new ChannelHandlerSecond());
                         }
                     });
             ChannelFuture cf = bootstrap.bind(6888).sync();

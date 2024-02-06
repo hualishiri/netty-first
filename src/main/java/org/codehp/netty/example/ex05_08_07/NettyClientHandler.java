@@ -1,4 +1,4 @@
-package org.codehp.netty.example.ex587;
+package org.codehp.netty.example.ex05_08_07;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

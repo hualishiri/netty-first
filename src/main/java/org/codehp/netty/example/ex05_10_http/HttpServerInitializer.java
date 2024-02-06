@@ -1,4 +1,4 @@
-package org.codehp.netty.example.ex510;
+package org.codehp.netty.example.ex05_10_http;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
